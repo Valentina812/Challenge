@@ -4,12 +4,28 @@
     available for purchase and can be added to the cart
 
 
-    Scenario Outline:
+    Scenario Outline: The user select product Alexa
       Given The user enters the page
       When  The user search Alexa
       | product |
       | <productAlexa>|
-      Then The user add the product the cart
+
+      And User navigates to the second page
+      And User selects the third item
+
+      Then The user not add the product the cart
       Examples:
       | productAlexa|
       | Alexa     |
+
+
+    Scenario Outline: The user select product Nintendo Switch
+      Given The user enters the page Amazon
+      When  The user search Nintendo Switch
+        | product |
+        | <productNintendo>|
+
+      Then The user add the product the cart
+      Examples:
+        | productNintendo|
+        | NintendoSwitch    |
