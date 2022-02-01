@@ -9,23 +9,20 @@
       When  The user search Alexa
       | product |
       | <productAlexa>|
-
       And User navigates to the second page
       And User selects the third item
-
       Then The user not add the product the cart
       Examples:
       | productAlexa|
       | Alexa     |
 
 
-    Scenario Outline: The user select product Nintendo Switch
+    Scenario Outline: The user select product playstation 4
       Given The user enters the page Amazon
-      When  The user search Nintendo Switch
+      When  The user search playstation
         | product |
-        | <productNintendo>|
-
+        | <productPlay>|
       Then The user add the product the cart
       Examples:
-        | productNintendo|
-        | NintendoSwitch    |
+        | productPlay|
+        | playstation 4    |

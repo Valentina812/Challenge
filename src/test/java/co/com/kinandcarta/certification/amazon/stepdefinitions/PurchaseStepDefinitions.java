@@ -5,6 +5,7 @@ import co.com.kinandcarta.certification.amazon.models.Search;
 import co.com.kinandcarta.certification.amazon.questions.ValidateButton;
 import co.com.kinandcarta.certification.amazon.taks.NavigatePage;
 import co.com.kinandcarta.certification.amazon.taks.PurchaseAlexa;
+import co.com.kinandcarta.certification.amazon.taks.PurchasePlay;
 import co.com.kinandcarta.certification.amazon.taks.SelectItem;
 import co.com.kinandcarta.certification.amazon.utils.MessageError;
 import cucumber.api.java.Before;
@@ -41,39 +42,40 @@ public class PurchaseStepDefinitions {
     }
 
 
+    @Given("^The user enters the page Amazon$")
+    public void theUserEntersThePageAmazon() {
+        theActorInTheSpotlight().wasAbleTo(Open.url("https://www.amazon.com/"));
+    }
+
     @When("^The user search Alexa$")
     public void theUserSearchAlexa(List<Search> data) {
         theActorInTheSpotlight().attemptsTo(PurchaseAlexa.theData(data));
 
     }
 
+    @When("^The user search playstation$")
+    public void theUserSearchPlaystation(List<Search> data) {
+        theActorInTheSpotlight().attemptsTo(PurchasePlay.theData(data));
+
+    }
+
     @And("^User navigates to the second page$")
-    public void userNavigatesToTheSecondPage(List<Search> data) {
-        theActorInTheSpotlight().attemptsTo(NavigatePage.theData(data));
+    public void userNavigatesToTheSecondPage() {
+        theActorInTheSpotlight().attemptsTo(NavigatePage.theData());
     }
 
     @And("^User selects the third item$")
-    public void userSelectsTheThirdItem(List<Search> data) {
-        theActorInTheSpotlight().attemptsTo(SelectItem.theData(data));
+    public void userSelectsTheThirdItem() {
+        theActorInTheSpotlight().attemptsTo(SelectItem.theData());
     }
-
 
     @Then("^The user not add the product the cart$")
     public void theUserNotAddTheProductTheCart() {
-        theActorInTheSpotlight().should(seeThat(ValidateButton.addCart(), equalTo(true)).orComplainWith(ExceptionError.class, MessageError.MSG_VALUE_BUTTON_ENABLE.getMsg()));
-    }
-
-
-    @Given("^The user enters the page Amazon$")
-    public void theUserEntersThePageAmazon() {
-        theActorInTheSpotlight().wasAbleTo(Open.url("https://www.amazon.com/"));
-    }
-
-    @When("^The user search Nintendo Switch$")
-    public void theUserSearchNintendoSwitch() {
+        theActorInTheSpotlight().should(seeThat(ValidateButton.addCart(), equalTo(false)).orComplainWith(ExceptionError.class, MessageError.MSG_VALUE_BUTTON_ENABLE.getMsg()));
     }
 
     @Then("^The user add the product the cart$")
     public void theUserAddTheProductTheCart() {
+        theActorInTheSpotlight().should(seeThat(ValidateButton.addCart(), equalTo(true)).orComplainWith(ExceptionError.class, MessageError.MSG_VALUE_BUTTON_DISABLED.getMsg()));
     }
 }

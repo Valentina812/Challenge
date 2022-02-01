@@ -17,5 +17,8 @@ public class PurchaseProduct {
     public static final Target BTN_ADD_CART = Target.the("Button add cart product")
             .located(By.xpath("//input[@id = 'add-to-cart-button']"));
 
+    public static final Target SLC_PLAY = Target.the("Select playstation product")
+            .located(By.xpath("//span[contains(text(),'Sony Playstation PS4 - Consola negra de 1 TB')]"));
+
 
 }

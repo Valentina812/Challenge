@@ -13,7 +13,7 @@ public class ValidateButton implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        return BTN_ADD_CART.resolveFor(actor).isDisabled();
+        return BTN_ADD_CART.resolveFor(actor).isVisible();
     }
 
     public static ValidateButton addCart() {

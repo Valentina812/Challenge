@@ -14,10 +14,10 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class SelectItem implements Task {
 
-    private String product;
 
-    public SelectItem(List<Search> data){
-        this.product = data.get(0).getProduct();
+
+    public SelectItem(){
+
     }
 
 
@@ -31,7 +31,7 @@ public class SelectItem implements Task {
 
     }
 
-    public static SelectItem theData(List<Search> data){
-        return Tasks.instrumented(SelectItem.class, data);
+    public static SelectItem theData(){
+        return Tasks.instrumented(SelectItem.class);
     }
 }

@@ -14,10 +14,10 @@ import static co.com.kinandcarta.certification.amazon.userinterfaces.PurchasePro
 
 public class NavigatePage implements Task{
 
-    private String product;
 
-    public NavigatePage(List<Search> data){
-        this.product = data.get(0).getProduct();
+
+    public NavigatePage(){
+
     }
 
 
@@ -30,8 +30,8 @@ public class NavigatePage implements Task{
 
     }
 
-    public static NavigatePage theData(List<Search> data){
-        return Tasks.instrumented(NavigatePage.class, data);
+    public static NavigatePage theData(){
+        return Tasks.instrumented(NavigatePage.class);
     }
 }
 
