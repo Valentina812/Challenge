@@ -6,8 +6,8 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "",
-        glue = "",
+@CucumberOptions(features = "C:/Users/sebas/Desktop/Challenge/src/test/resources/features/Purchase.feature",
+        glue = "co/com/kinandcarta/certification/amazon/stepdefinitions",
         snippets = SnippetType.CAMELCASE)
 
 public class Purchase {
