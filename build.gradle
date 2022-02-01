@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'net.serenity-bdd:serenity-junit:2.0.69'
+    implementation 'net.serenity-bdd:serenity-screenplay-rest:2.0.69'
+    implementation 'net.serenity-bdd:serenity-cucumber:1.9.39'
+    implementation 'net.serenity-bdd:serenity-screenplay:2.0.69'
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:2.0.69'
+    implementation 'junit:junit:4.12'
+
+    testImplementation 'net.serenity-bdd:serenity-junit:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-core:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-screenplay:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-junit:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-rest:2.0.69'
+    testImplementation 'net.serenity-bdd:serenity-cucumber:1.9.39'
+    testImplementation 'junit:junit:4.12'
+}
